@@ -4,10 +4,10 @@ import { SITE } from '~/config/site.config';
 import '~/styles/global.css';
 
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-  canonical?: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  image?: string | undefined;
+  canonical?: string | undefined;
 }
 
 const { title, description, image, canonical } = Astro.props;
