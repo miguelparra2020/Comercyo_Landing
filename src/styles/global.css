@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optimización de fuentes */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans;
+  }
+
+  /* Mejora de legibilidad */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Optimización de imágenes */
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+/* Utilidades personalizadas */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animaciones suaves */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+}
+
+/* Performance: Reducir repaints */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accesibilidad: Focus visible */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-600;
+}
+
+/* Skip to main content (accesibilidad) */
+.skip-to-main {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded;
+}

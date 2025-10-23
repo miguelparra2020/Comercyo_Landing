@@ -1,0 +1,119 @@
+---
+import { SITE } from '~/config/site.config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const { title, description, image, canonical } = Astro.props;
+
+const pageTitle = title ? `${title} | ${SITE.name}` : SITE.defaultTitle;
+const pageDesc = description || SITE.description;
+const pageCanonical = canonical || SITE.domain + Astro.url.pathname;
+const pageImage = image || SITE.defaultImage;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE.domain}#organization`,
+      'name': SITE.name,
+      'url': SITE.domain,
+      'logo': `${SITE.domain}/images/logo.png`,
+      'sameAs': [],
+      'contactPoint': {
+        '@type': 'ContactPoint',
+        'email': SITE.author.email,
+        'contactType': 'customer service',
+        'areaServed': 'CO',
+        'availableLanguage': ['es']
+      }
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE.domain}#website`,
+      'url': SITE.domain,
+      'name': SITE.name,
+      'inLanguage': SITE.lang,
+      'potentialAction': {
+        '@type': 'SearchAction',
+        'target': `${SITE.domain}/?s={search_term_string}`,
+        'query-input': 'required name=search_term_string'
+      }
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${pageCanonical}#webpage`,
+      'url': pageCanonical,
+      'name': pageTitle,
+      'description': pageDesc,
+      'inLanguage': SITE.lang,
+      'isPartOf': { '@id': `${SITE.domain}#website` }
+    },
+    {
+      '@type': 'Service',
+      'name': 'Desarrollo de Software Personalizado',
+      'provider': { '@id': `${SITE.domain}#organization` },
+      'areaServed': SITE.cities.map((c) => ({ '@type': 'City', 'name': c })),
+      'serviceType': ['E-commerce', 'ERP', 'CRM', 'Automatización']
+    }
+  ]
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={pageDesc} />
+<meta name="keywords" content={SITE.keywords.join(', ')} />
+<meta name="author" content={SITE.author.name} />
+<meta name="language" content={SITE.lang} />
+<meta name="geo.region" content="CO" />
+<meta name="geo.placename" content="Colombia" />
+
+<!-- Canonical -->
+<link rel="canonical" href={pageCanonical} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={pageCanonical} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
+<meta property="og:image" content={`${SITE.domain}${pageImage}`} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content={SITE.locale} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={pageCanonical} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDesc} />
+<meta name="twitter:image" content={`${SITE.domain}${pageImage}`} />
+<meta name="twitter:creator" content={SITE.social.twitter} />
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="es-CO" href={SITE.domain} />
+<link rel="alternate" hreflang="es" href={SITE.domain} />
+<link rel="alternate" hreflang="x-default" href={SITE.domain} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Preconnect to external domains -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<!-- Performance hints -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />

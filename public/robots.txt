@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Allow: /
+
+Sitemap: https://comercyo.com/sitemap.xml
+Host: https://comercyo.com

@@ -1,0 +1,351 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Header from '~/components/Header.astro';
+import Footer from '~/components/Footer.astro';
+import { SITE } from '~/config/site.config';
+---
+
+<BaseLayout>
+  <Header />
+  
+  <main id="main" class="pt-20">
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-50 to-white py-20 md:py-32">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            {SITE.defaultTitle}
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+            {SITE.description}
+          </p>
+          
+          <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a 
+              href="#contacto" 
+              class="bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Solicitar Cotización
+            </a>
+            <a 
+              href="#servicios" 
+              class="bg-white text-primary-600 px-8 py-4 rounded-lg hover:bg-gray-50 transition-all shadow-lg border-2 border-primary-600 font-semibold text-lg"
+            >
+              Ver Servicios
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <div class="text-primary-600 font-bold text-lg mb-1">E-commerce</div>
+              <p class="text-sm text-gray-600">Tiendas online</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <div class="text-primary-600 font-bold text-lg mb-1">ERP</div>
+              <p class="text-sm text-gray-600">Gestión empresarial</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <div class="text-primary-600 font-bold text-lg mb-1">CRM</div>
+              <p class="text-sm text-gray-600">Gestión de clientes</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <div class="text-primary-600 font-bold text-lg mb-1">Automatización</div>
+              <p class="text-sm text-gray-600">Procesos eficientes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">Nuestros Servicios</h2>
+        <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+          Soluciones tecnológicas diseñadas para impulsar tu negocio
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <article class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+            <div class="w-16 h-16 bg-primary-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">E-commerce</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Plataformas de comercio electrónico robustas y escalables. Gestión de inventario, pagos seguros, 
+              y experiencia de compra optimizada para maximizar tus ventas online.
+            </p>
+          </article>
+
+          <article class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+            <div class="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">ERP</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Sistemas de planificación de recursos empresariales personalizados. Integra finanzas, inventario, 
+              producción y recursos humanos en una sola plataforma eficiente.
+            </p>
+          </article>
+
+          <article class="bg-gradient-to-br from-green-50 to-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+            <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">CRM</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Gestión de relaciones con clientes optimizada. Seguimiento de leads, automatización de ventas, 
+              y análisis de datos para mejorar la retención y satisfacción del cliente.
+            </p>
+          </article>
+
+          <article class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+            <div class="w-16 h-16 bg-orange-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Automatización</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Automatiza procesos repetitivos y optimiza flujos de trabajo. Integración de sistemas, 
+              notificaciones automáticas y reportes en tiempo real para mayor eficiencia.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">Soluciones Personalizadas</h2>
+        <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+          Adaptamos nuestra tecnología a las necesidades específicas de tu negocio
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <article class="bg-white p-10 rounded-2xl shadow-xl">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <span class="text-2xl">🚀</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Para Start-Ups</h3>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Comercyo.com ayuda a las startups a optimizar la gestión de inventario y automatizar el contenido de productos. 
+              Nuestras soluciones escalables te permiten crecer sin límites técnicos.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-primary-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700">Inversión inicial reducida</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-primary-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700">Escalabilidad garantizada</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-primary-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700">Soporte técnico continuo</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="bg-white p-10 rounded-2xl shadow-xl">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                <span class="text-2xl">🏢</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Para Empresas</h3>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Comercyo.com ayuda a las grandes empresas a gestionar inventarios masivos, integrar sistemas legacy 
+              y automatizar procesos complejos. Transformación digital completa y segura.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-purple-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700">Integración con sistemas existentes</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-purple-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700">Seguridad empresarial avanzada</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-purple-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700">Capacitación y documentación completa</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por qué Comercyo Section -->
+    <section id="por-que" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">¿Por qué Comercyo.com?</h2>
+        <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+          Creamos soluciones digitales que impulsan tu negocio hacia el futuro
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div class="text-center">
+            <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Visibilidad 24/7</h3>
+            <p class="text-gray-700">Tu tienda siempre abierta para recibir pedidos y consultas, sin límites de horario</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Mayor Productividad</h3>
+            <p class="text-gray-700">Automatización de procesos que libera tiempo para enfocarte en el crecimiento</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Seguridad Garantizada</h3>
+            <p class="text-gray-700">Protección de datos empresariales con los más altos estándares de seguridad</p>
+          </div>
+        </div>
+
+        <div class="mt-16 bg-gradient-to-r from-primary-600 to-purple-600 rounded-2xl p-12 text-white text-center">
+          <h3 class="text-3xl font-bold mb-4">Presencia en toda Colombia</h3>
+          <p class="text-xl mb-6 opacity-90">Atendemos empresas en las principales ciudades del país</p>
+          <div class="flex flex-wrap justify-center gap-4 text-lg">
+            {SITE.cities.map((city) => (
+              <span class="bg-white/20 px-4 py-2 rounded-lg backdrop-blur-sm">{city}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 bg-gradient-to-br from-primary-50 to-purple-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">Comienza Tu Transformación Digital</h2>
+          <p class="text-xl text-gray-700 text-center mb-12">
+            Contáctanos hoy y descubre cómo podemos impulsar tu negocio
+          </p>
+
+          <div class="bg-white rounded-2xl shadow-2xl p-10">
+            <form class="space-y-6" action="#" method="POST">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">Nombre Completo</label>
+                  <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                    placeholder="tu@email.com"
+                  />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="empresa" class="block text-sm font-semibold text-gray-700 mb-2">Empresa</label>
+                  <input 
+                    type="text" 
+                    id="empresa" 
+                    name="empresa"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                    placeholder="Nombre de tu empresa"
+                  />
+                </div>
+                <div>
+                  <label for="servicio" class="block text-sm font-semibold text-gray-700 mb-2">Servicio de Interés</label>
+                  <select 
+                    id="servicio" 
+                    name="servicio"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                  >
+                    <option value="">Selecciona un servicio</option>
+                    <option value="ecommerce">E-commerce</option>
+                    <option value="erp">ERP</option>
+                    <option value="crm">CRM</option>
+                    <option value="automatizacion">Automatización</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="mensaje" class="block text-sm font-semibold text-gray-700 mb-2">Mensaje</label>
+                <textarea 
+                  id="mensaje" 
+                  name="mensaje" 
+                  rows="5"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all resize-none"
+                  placeholder="Cuéntanos sobre tu proyecto..."
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit"
+                class="w-full bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+              >
+                Enviar Mensaje
+              </button>
+            </form>
+
+            <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+              <p class="text-gray-700 mb-4">O contáctanos directamente:</p>
+              <a href={`mailto:${SITE.author.email}`} class="text-primary-600 hover:text-primary-700 font-semibold text-lg">
+                {SITE.author.email}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
