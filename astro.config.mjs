@@ -7,15 +7,26 @@ export default defineConfig({
   integrations: [tailwind(), sitemap()],
   build: {
     // Perf: output static assets optimizados
-    format: 'directory'
+    format: 'directory',
+    inlineStylesheets: 'auto' // Inline CSS crítico automáticamente
   },
   vite: {
     build: {
+      // Optimizar CSS para reducir cadenas de dependencias
+      cssCodeSplit: false,
       rollupOptions: {
         output: {
-          manualChunks: undefined
+          manualChunks: undefined,
+          // Optimizar nombres de archivos para mejor caching
+          assetFileNames: 'assets/[name].[hash][extname]'
         }
-      }
+      },
+      // Reducir tamaño de chunks
+      chunkSizeWarningLimit: 1000
+    },
+    // Optimizar resolución de módulos
+    resolve: {
+      dedupe: ['astro']
     }
   }
 });
