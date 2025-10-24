@@ -39,7 +39,15 @@
       <!-- Mockup Images -->
       <div class="relative max-w-6xl mx-auto">
         <picture>
-          <source srcset="/images/img-hero.webp" type="image/webp" />
+          <!-- Desktop/Tablet: 768px and up -->
+          <source srcset="/images/img-hero.webp" type="image/webp" media="(min-width: 768px)" />
+          <source srcset="/images/img-hero.png" type="image/png" media="(min-width: 768px)" />
+          
+          <!-- Mobile: below 768px -->
+          <source srcset="/images/img-hero-m.webp" type="image/webp" media="(max-width: 767px)" />
+          <source srcset="/images/img-hero-m.png" type="image/png" media="(max-width: 767px)" />
+          
+          <!-- Fallback -->
           <img 
             src="/images/img-hero.png" 
             alt="Comercyo Software Solutions" 
