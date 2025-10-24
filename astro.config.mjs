@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     // Perf: output static assets optimizados
     format: 'directory',
-    inlineStylesheets: 'auto' // Inline CSS crítico automáticamente
+    inlineStylesheets: 'always' // Inline CSS para eliminar render-blocking
   },
   vite: {
     build: {
