@@ -1,0 +1,162 @@
+---
+// Contacto Modal Component
+import { SITE } from '~/config/site.config';
+---
+
+<!-- Modal Overlay -->
+<div id="contacto-modal" class="fixed inset-0 z-50 hidden">
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" id="modal-backdrop"></div>
+  
+  <!-- Modal Container -->
+  <div class="fixed inset-0 overflow-y-auto">
+    <div class="flex min-h-full items-center justify-center p-4">
+      <!-- Modal Content -->
+      <div class="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full transform transition-all">
+        <!-- Close Button -->
+        <button 
+          type="button"
+          id="close-modal"
+          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
+          aria-label="Cerrar modal"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Modal Body -->
+        <div class="p-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Comienza Tu Transformación Digital</h2>
+          <p class="text-lg text-gray-700 text-center mb-8">
+            Contáctanos hoy y descubre cómo podemos impulsar tu negocio
+          </p>
+
+          <form class="space-y-6" action="#" method="POST">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">Nombre Completo</label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                  placeholder="tu@email.com"
+                />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="empresa" class="block text-sm font-semibold text-gray-700 mb-2">Empresa</label>
+                <input 
+                  type="text" 
+                  id="empresa" 
+                  name="empresa"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                  placeholder="Nombre de tu empresa"
+                />
+              </div>
+              <div>
+                <label for="servicio" class="block text-sm font-semibold text-gray-700 mb-2">Servicio de Interés</label>
+                <select 
+                  id="servicio" 
+                  name="servicio"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+                >
+                  <option value="">Selecciona un servicio</option>
+                  <option value="ecommerce">E-commerce</option>
+                  <option value="erp">ERP</option>
+                  <option value="crm">CRM</option>
+                  <option value="automatizacion">Automatización</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="mensaje" class="block text-sm font-semibold text-gray-700 mb-2">Mensaje</label>
+              <textarea 
+                id="mensaje" 
+                name="mensaje" 
+                rows="5"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all resize-none"
+                placeholder="Cuéntanos sobre tu proyecto..."
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit"
+              class="w-full bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Enviar Mensaje
+            </button>
+          </form>
+
+          <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+            <p class="text-gray-700 mb-4">O contáctanos directamente:</p>
+            <a href={`mailto:${SITE.author.email}`} class="text-primary-600 hover:text-primary-700 font-semibold text-lg">
+              {SITE.author.email}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Open modal function
+  function openContactModal() {
+    const modal = document.getElementById('contacto-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+  }
+
+  // Close modal function
+  function closeContactModal() {
+    const modal = document.getElementById('contacto-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+  }
+
+  // Close button event
+  const closeButton = document.getElementById('close-modal');
+  if (closeButton) {
+    closeButton.addEventListener('click', closeContactModal);
+  }
+
+  // Close on backdrop click
+  const backdrop = document.getElementById('modal-backdrop');
+  if (backdrop) {
+    backdrop.addEventListener('click', closeContactModal);
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeContactModal();
+    }
+  });
+
+  // Expose function globally so it can be called from anywhere
+  (window as any).openContactModal = openContactModal;
+  (window as any).closeContactModal = closeContactModal;
+</script>
